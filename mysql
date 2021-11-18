@@ -1,0 +1,59 @@
+//creating table
+use zen_class;
+create table user(id int auto_increment primary key,name varchar(50) ,email varchar(50));
+create table attendance (id int auto_increment primary key,date date,user int, foreign key(user) references user(id));
+create table  course(id int auto_increment primary key,course_name varchar(50));
+
+create table codekata(id int auto_increment primary key,no_of_problem int,user int,foreign key(user) references user(id));
+create table topics(id int auto_increment primary key,topic_name varchar(50));
+create table company_drives(id int auto_increment primary key,company_name varchar(50),user int,foreign key(user) references user(id));
+create table tasks(id int auto_increment primary key,task_name varchar(50),user int,foreign key(user) references user(id));
+
+create table student_course(id int auto_increment primary key,courseId int,foreign key(courseId) references course(id),user int,foreign key(user) references user(id));
+create table mentors(id int auto_increment primary key,name varchar(25),user int,foreign key(user) references user(id));
+
+
+***//inserting data/***
+SELECT * FROM zen_class.course;
+insert into course(course_name) values("python");
+insert into course(course_name) values("mongodb");
+insert into course(course_name) values("javascript");
+insert into course(course_name) values("react");
+insert into course(course_name) values("angular");
+insert into course(course_name) values("my sql");
+insert into course(course_name) values("nodejs");
+
+SELECT * FROM zen_class.mentors;
+insert into mentors(name,user) values("tamil",1);
+insert into mentors(name,user) values("raghav",2);
+insert into mentors(name,user) values("tamil",3);
+insert into mentors(name,user) values("tamil",4);
+insert into mentors(name,user) values("raghav",5);
+insert into mentors(name,user) values("tamil",6);
+
+
+SELECT * FROM zen_class.tasks;
+insert into tasks(task_name,user) values("html",1);
+insert into tasks(task_name,user) values("css",1);
+insert into tasks(task_name,user) values("css",2);
+insert into tasks(task_name,user) values("html",3);
+insert into tasks(task_name,user) values("css",3);
+insert into tasks(task_name,user) values("css",4);
+insert into tasks(task_name,user) values("html",5);
+insert into tasks(task_name,user) values("css",5);
+insert into tasks(task_name,user) values("css",6);
+insert into tasks(task_name,user) values("html",6);
+insert into tasks(task_name,user) values("html",2);
+
+
+SELECT * FROM zen_class.student_course;
+insert into student_course(courseId,user) values(1,1);
+insert into student_course(courseId,user) values(2,2);
+insert into student_course(courseId,user) values(2,3);
+insert into student_course(courseId,user) values(2,4);
+insert into student_course(courseId,user) values(3,5);
+insert into student_course(courseId,user) values(3,6);
+insert into student_course(courseId,user) values(4,3);
+insert into student_course(courseId,user) values(4,1);
+
+
