@@ -1,3 +1,5 @@
+
+1. Create tables for the above list given
 //creating table
 use zen_class;
 create table user(id int auto_increment primary key,name varchar(50) ,email varchar(50));
@@ -12,7 +14,7 @@ create table tasks(id int auto_increment primary key,task_name varchar(50),user 
 create table student_course(id int auto_increment primary key,courseId int,foreign key(courseId) references course(id),user int,foreign key(user) references user(id));
 create table mentors(id int auto_increment primary key,name varchar(25),user int,foreign key(user) references user(id));
 
-
+2. insert at least 5 rows of values in each table
 ***//inserting data/***
 SELECT * FROM zen_class.course;
 insert into course(course_name) values("python");
@@ -55,5 +57,22 @@ insert into student_course(courseId,user) values(3,5);
 insert into student_course(courseId,user) values(3,6);
 insert into student_course(courseId,user) values(4,3);
 insert into student_course(courseId,user) values(4,1);
+
+
+3.  get number problems solved in codekata by combining the users
+select no_of_problem,user from codekata 
+
+4. display the no of company drives attended by a user
+select user, count(*) as count from company_drives group by user
+
+5. combine and display students_activated_courses and courses for a specific user groping them based on the course
+  select courseId ,user, count(*) from student_course group by user;
+
+6. list all the mentors
+SELECT * FROM zen_class.mentors;
+
+
+7.  list the number of students that are assigned for a mentor
+select name, count(*) as count from mentors group by name
 
 
